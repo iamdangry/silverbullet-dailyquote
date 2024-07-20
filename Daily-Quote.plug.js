@@ -347,12 +347,12 @@ async function dailyQuote() {
   const response = await fetch(quoteAPI);
   if (!response.ok) {
     throw new Error("Failed to fetch quote");
-    await editor_exports.flashNotification("Failed to fetch quote");
+    await editor_exports.flashNotification("Failed to fetch quote", "error");
   }
   const data = await response.json();
   const quoteData = Array.isArray(data) ? data[0] : data;
   if (quoteData.content && quoteData.author) {
-    await editor_exports.flashNotification("Fetched Quote Successfully!");
+    await editor_exports.flashNotification("Fetched Quote Successfully!", "info");
     const quote = quoteData.content;
     const author = quoteData.author;
     const formattedQuote = `${quote}
@@ -365,7 +365,7 @@ async function dailyQuote() {
   }
 }
 
-// 88003ea26c1e0c02.js
+// ffb9a3976d6abd85.js
 var functionMapping = {
   dailyQuote
 };
