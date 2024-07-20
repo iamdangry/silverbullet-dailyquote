@@ -342,21 +342,43 @@ function deleteLine() {
 }
 
 // E:/Repos/silverbullet-dailyquote/daily-quote.ts
-async function helloWorld() {
-  await editor_exports.flashNotification("Hello world!");
+async function dailyQuote() {
+  const quoteAPI = "https://api.quotable.io/quotes/random";
+  const response = await fetch(quoteAPI);
+  if (!response.ok) {
+    throw new Error("Failed to fetch quote");
+    await editor_exports.flashNotification("Failed to fetch quote");
+  }
+  const data = await response.json();
+  const quoteData = Array.isArray(data) ? data[0] : data;
+  if (quoteData.content && quoteData.author) {
+    await editor_exports.flashNotification("Fetched Quote Successfully!");
+    const quote = quoteData.content;
+    const author = quoteData.author;
+    const formattedQuote = `${quote}
+> \u2014 ${author}`;
+    await editor_exports.insertAtCursor(
+      formattedQuote
+    );
+  } else {
+    throw new Error("No quote in response");
+  }
 }
 
-// 6c4bb9a217370b28.js
+// 88003ea26c1e0c02.js
 var functionMapping = {
-  helloWorld
+  dailyQuote
 };
 var manifest = {
   "name": "Daily-Quote",
+  "requiredPermissions": [
+    "fetch"
+  ],
   "functions": {
-    "helloWorld": {
-      "path": "daily-quote.ts:helloWorld",
+    "dailyQuote": {
+      "path": "daily-quote.ts:dailyQuote",
       "command": {
-        "name": "Daily Quote: Generate"
+        "name": "Daily Quote: Fetch"
       }
     }
   },

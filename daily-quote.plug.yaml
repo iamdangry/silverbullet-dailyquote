@@ -1,6 +1,8 @@
 name: Daily-Quote
+requiredPermissions:
+  - fetch
 functions:
-  helloWorld:
-    path: daily-quote.ts:helloWorld
+  dailyQuote:
+    path: daily-quote.ts:dailyQuote
     command:
-      name: "Daily Quote: Generate"
+      name: "Daily Quote: Fetch"
