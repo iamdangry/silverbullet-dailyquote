@@ -171,7 +171,7 @@ async function dailyQuote() {
   }
 }
 
-// 7647aeb3fd1834bb.js
+// 6417352060fc33d9.js
 var functionMapping = {
   dailyQuote
 };
@@ -182,10 +182,7 @@ var manifest = {
   ],
   "functions": {
     "dailyQuote": {
-      "path": "daily-quote.ts:dailyQuote",
-      "command": {
-        "name": "Daily Quote: Fetch"
-      }
+      "path": "daily-quote.ts:dailyQuote"
     }
   },
   "assets": {}

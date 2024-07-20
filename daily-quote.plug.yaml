@@ -4,5 +4,5 @@ requiredPermissions:
 functions:
   dailyQuote:
     path: daily-quote.ts:dailyQuote
-    command:
-      name: "Daily Quote: Fetch"
+    # command:
+    #   name: "Daily Quote: Fetch"
