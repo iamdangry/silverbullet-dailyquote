@@ -346,17 +346,17 @@ async function helloWorld() {
   await editor_exports.flashNotification("Hello world!");
 }
 
-// 5422d1cca8b37403.js
+// 552d57be3d64c026.js
 var functionMapping = {
   helloWorld
 };
 var manifest = {
-  "name": "hello",
+  "name": "Daily-Quote",
   "functions": {
     "helloWorld": {
       "path": "hello.ts:helloWorld",
       "command": {
-        "name": "Say hello"
+        "name": "Daily Quote: Generate"
       }
     }
   },
@@ -367,4 +367,4 @@ setupMessageListener(functionMapping, manifest);
 export {
   plug
 };
-//# sourceMappingURL=hello.plug.js.map
+//# sourceMappingURL=Daily-Quote.plug.js.map

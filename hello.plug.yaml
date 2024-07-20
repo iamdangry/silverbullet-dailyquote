@@ -1,6 +1,6 @@
-name: hello
+name: Daily-Quote
 functions:
   helloWorld:
     path: hello.ts:helloWorld
     command:
-      name: "Say hello"
+      name: "Daily Quote: Generate"
