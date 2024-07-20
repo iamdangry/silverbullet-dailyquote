@@ -1,9 +1,3 @@
-var __defProp = Object.defineProperty;
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
-
 // https://deno.land/x/silverbullet@0.8.2/lib/plugos/worker_runtime.ts
 var runningAsWebWorker = typeof window === "undefined" && // @ts-ignore: globalThis
 typeof globalThis.WebSocketPair === "undefined";
@@ -156,216 +150,28 @@ if (runningAsWebWorker) {
   monkeyPatchFetch();
 }
 
-// https://deno.land/x/silverbullet@0.8.1/plug-api/syscalls/editor.ts
-var editor_exports = {};
-__export(editor_exports, {
-  confirm: () => confirm,
-  copyToClipboard: () => copyToClipboard,
-  deleteLine: () => deleteLine,
-  dispatch: () => dispatch,
-  downloadFile: () => downloadFile,
-  filterBox: () => filterBox,
-  flashNotification: () => flashNotification,
-  fold: () => fold,
-  foldAll: () => foldAll,
-  getCurrentPage: () => getCurrentPage,
-  getCursor: () => getCursor,
-  getSelection: () => getSelection,
-  getText: () => getText,
-  getUiOption: () => getUiOption,
-  goHistory: () => goHistory,
-  hidePanel: () => hidePanel,
-  insertAtCursor: () => insertAtCursor,
-  insertAtPos: () => insertAtPos,
-  moveCursor: () => moveCursor,
-  navigate: () => navigate,
-  openCommandPalette: () => openCommandPalette,
-  openPageNavigator: () => openPageNavigator,
-  openSearchPanel: () => openSearchPanel,
-  openUrl: () => openUrl,
-  prompt: () => prompt,
-  redo: () => redo,
-  reloadPage: () => reloadPage,
-  reloadSettingsAndCommands: () => reloadSettingsAndCommands,
-  reloadUI: () => reloadUI,
-  replaceRange: () => replaceRange,
-  save: () => save,
-  setPage: () => setPage,
-  setSelection: () => setSelection,
-  setText: () => setText,
-  setUiOption: () => setUiOption,
-  showPanel: () => showPanel,
-  toggleFold: () => toggleFold,
-  undo: () => undo,
-  unfold: () => unfold,
-  unfoldAll: () => unfoldAll,
-  uploadFile: () => uploadFile,
-  vimEx: () => vimEx
-});
-
-// https://deno.land/x/silverbullet@0.8.1/plug-api/syscall.ts
-if (typeof self === "undefined") {
-  self = {
-    syscall: () => {
-      throw new Error("Not implemented here");
-    }
-  };
-}
-var syscall2 = globalThis.syscall;
-
-// https://deno.land/x/silverbullet@0.8.1/plug-api/syscalls/editor.ts
-function getCurrentPage() {
-  return syscall2("editor.getCurrentPage");
-}
-function setPage(newName) {
-  return syscall2("editor.setPage", newName);
-}
-function getText() {
-  return syscall2("editor.getText");
-}
-function setText(newText) {
-  return syscall2("editor.setText", newText);
-}
-function getCursor() {
-  return syscall2("editor.getCursor");
-}
-function getSelection() {
-  return syscall2("editor.getSelection");
-}
-function setSelection(from, to) {
-  return syscall2("editor.setSelection", from, to);
-}
-function save() {
-  return syscall2("editor.save");
-}
-function navigate(pageRef, replaceState = false, newWindow = false) {
-  return syscall2("editor.navigate", pageRef, replaceState, newWindow);
-}
-function openPageNavigator(mode = "page") {
-  return syscall2("editor.openPageNavigator", mode);
-}
-function openCommandPalette() {
-  return syscall2("editor.openCommandPalette");
-}
-function reloadPage() {
-  return syscall2("editor.reloadPage");
-}
-function reloadUI() {
-  return syscall2("editor.reloadUI");
-}
-function reloadSettingsAndCommands() {
-  return syscall2("editor.reloadSettingsAndCommands");
-}
-function openUrl(url, existingWindow = false) {
-  return syscall2("editor.openUrl", url, existingWindow);
-}
-function goHistory(delta) {
-  return syscall2("editor.goHistory", delta);
-}
-function downloadFile(filename, dataUrl) {
-  return syscall2("editor.downloadFile", filename, dataUrl);
-}
-function uploadFile(accept, capture) {
-  return syscall2("editor.uploadFile", accept, capture);
-}
-function flashNotification(message, type = "info") {
-  return syscall2("editor.flashNotification", message, type);
-}
-function filterBox(label, options, helpText = "", placeHolder = "") {
-  return syscall2("editor.filterBox", label, options, helpText, placeHolder);
-}
-function showPanel(id, mode, html, script = "") {
-  return syscall2("editor.showPanel", id, mode, html, script);
-}
-function hidePanel(id) {
-  return syscall2("editor.hidePanel", id);
-}
-function insertAtPos(text, pos) {
-  return syscall2("editor.insertAtPos", text, pos);
-}
-function replaceRange(from, to, text) {
-  return syscall2("editor.replaceRange", from, to, text);
-}
-function moveCursor(pos, center = false) {
-  return syscall2("editor.moveCursor", pos, center);
-}
-function insertAtCursor(text) {
-  return syscall2("editor.insertAtCursor", text);
-}
-function dispatch(change) {
-  return syscall2("editor.dispatch", change);
-}
-function prompt(message, defaultValue = "") {
-  return syscall2("editor.prompt", message, defaultValue);
-}
-function confirm(message) {
-  return syscall2("editor.confirm", message);
-}
-function getUiOption(key) {
-  return syscall2("editor.getUiOption", key);
-}
-function setUiOption(key, value) {
-  return syscall2("editor.setUiOption", key, value);
-}
-function vimEx(exCommand) {
-  return syscall2("editor.vimEx", exCommand);
-}
-function fold() {
-  return syscall2("editor.fold");
-}
-function unfold() {
-  return syscall2("editor.unfold");
-}
-function toggleFold() {
-  return syscall2("editor.toggleFold");
-}
-function foldAll() {
-  return syscall2("editor.foldAll");
-}
-function unfoldAll() {
-  return syscall2("editor.unfoldAll");
-}
-function undo() {
-  return syscall2("editor.undo");
-}
-function redo() {
-  return syscall2("editor.redo");
-}
-function openSearchPanel() {
-  return syscall2("editor.openSearchPanel");
-}
-function copyToClipboard(data) {
-  return syscall2("editor.copyToClipboard", data);
-}
-function deleteLine() {
-  return syscall2("editor.deleteLine");
-}
-
 // E:/Repos/silverbullet-dailyquote/daily-quote.ts
 async function dailyQuote() {
   const quoteAPI = "https://api.quotable.io/quotes/random";
   const response = await fetch(quoteAPI);
   if (!response.ok) {
     throw new Error("Failed to fetch quote");
-    await editor_exports.flashNotification("Failed to fetch quote", "error");
   }
   const data = await response.json();
   const quoteData = Array.isArray(data) ? data[0] : data;
   if (quoteData.content && quoteData.author) {
-    await editor_exports.flashNotification("Fetched Quote Successfully!", "info");
     const quote = quoteData.content;
     const author = quoteData.author;
     const formattedQuote = `${quote}
 > \u2014 ${author}`;
-    await editor_exports.insertAtCursor(
-      formattedQuote
-    );
+    console.log(formattedQuote);
+    return formattedQuote;
   } else {
     throw new Error("No quote in response");
   }
 }
 
-// ffb9a3976d6abd85.js
+// 7647aeb3fd1834bb.js
 var functionMapping = {
   dailyQuote
 };
