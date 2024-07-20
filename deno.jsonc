@@ -1,8 +1,8 @@
 {
   "importMap": "import_map.json",
   "tasks": {
-    "build": "silverbullet plug:compile --debug --info --importmap import_map.json hello.plug.yaml",
-    "watch": "silverbullet plug:compile --debug --info --importmap import_map.json hello.plug.yaml -w"
+    "build": "silverbullet plug:compile --debug --info --importmap import_map.json daily-quote.plug.yaml",
+    "watch": "silverbullet plug:compile --debug --info --importmap import_map.json daily-quote.plug.yaml -w"
   },
   "lint": {
     "rules": {

@@ -341,12 +341,12 @@ function deleteLine() {
   return syscall2("editor.deleteLine");
 }
 
-// E:/Repos/silverbullet-dailyquote/hello.ts
+// E:/Repos/silverbullet-dailyquote/daily-quote.ts
 async function helloWorld() {
   await editor_exports.flashNotification("Hello world!");
 }
 
-// 552d57be3d64c026.js
+// 6c4bb9a217370b28.js
 var functionMapping = {
   helloWorld
 };
@@ -354,7 +354,7 @@ var manifest = {
   "name": "Daily-Quote",
   "functions": {
     "helloWorld": {
-      "path": "hello.ts:helloWorld",
+      "path": "daily-quote.ts:helloWorld",
       "command": {
         "name": "Daily Quote: Generate"
       }
