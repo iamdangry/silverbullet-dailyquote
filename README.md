@@ -1,34 +1,37 @@
 
-# SilverBullet plug template
+# SilverBullet Daily Quote Plug
 
-Insert your plug description here
+This plug was built due to Quoteables API being down.
 
-## Build
-To build this plug, make sure you have [SilverBullet installed](https://silverbullet.md/Install). Then, build the plug with:
+This plug uses a copy of the [Quoteables Data](https://github.com/quotable-io/data).
 
-```shell
-deno task build
-```
-
-Or to watch for changes and rebuild automatically
-
-```shell
-deno task watch
-```
-
-Then, copy the resulting `.plug.js` file into your space's `_plug` folder. Or build and copy in one command:
-
-```shell
-deno task build && cp *.plug.js /my/space/_plug/
-```
-
-SilverBullet will automatically sync and load the new version of the plug (or speed up this process by running the {[Sync: Now]} command).
+Originally I built this using the Templater plugin built for Obsidian as inspiration, so it is currently only tailored to insert quotes into a template inside an admonition.
 
 ## Installation
-If you would like to install this plug straight from Github, make sure you have the `.js` file committed to the repo and simply add
+
+### PLUG
+
+If you would like to install this plug straight from Github simply add the below to your `PLUGS` file, run `Plugs: Update`:
 
 ```
-- github:user/plugname/plugname.plug.js
+- github:iamdangry/silverbullet-dailyquote/daily-quote.plug.js
 ```
 
-to your `PLUGS` file, run `Plugs: Update` command and off you go!
+### Space Script
+
+Due to a limitation within SilverBullet to call a plug from a template, the following space script needs to be added to your space.
+
+```space-script
+silverbullet.registerFunction({name: "fetchDailyQuote"}, async () => {
+  return await syscall("system.invokeFunction", "Daily-Quote.dailyQuote");
+})
+```
+
+### Template
+
+Within your template, call this space-script:
+
+```
+> **quote** Quote
+> {{fetchDailyQuote}}
+```
