@@ -35,3 +35,5 @@ Within your template, call this space-script:
 > **quote** Quote
 > {{fetchDailyQuote}}
 ```
+
+I use the custom quote admonition from [this](https://community.silverbullet.md/t/additional-admonition-types/281/3) communitiy post.
