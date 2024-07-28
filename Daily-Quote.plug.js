@@ -12936,7 +12936,7 @@ function dailyQuote() {
   }
 }
 
-// 6ebb6e5d5838118b.js
+// 7a1a4170ccb84a65.js
 var functionMapping = {
   dailyQuote
 };
