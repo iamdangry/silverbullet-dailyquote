@@ -15,6 +15,12 @@ If you would like to install this plug straight from Github simply add the below
 - github:iamdangry/silverbullet-dailyquote/daily-quote.plug.js
 ```
 
+Or to target a specific release
+
+```
+- ghr:iamdangry/silverbullet-dailyquote/0.0.1/daily-quote.plug.js
+```
+
 ### Space Script
 
 Due to a limitation within SilverBullet to call a plug from a template, the following space script needs to be added to your space.
