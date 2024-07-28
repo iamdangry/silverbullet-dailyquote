@@ -12917,16 +12917,17 @@ var quotes_default = [
 ];
 
 // E:/Repos/silverbullet-dailyquote/daily-quote.ts
-function getRandomQuote() {
+function getRandomQuoteIndex() {
   const randomIndex = Math.floor(Math.random() * quotes_default.length);
   return randomIndex;
 }
 function dailyQuote() {
-  const quoteData = Array.isArray(quotes_default) ? quotes_default[getRandomQuote()] : quotes_default;
+  const quoteData = Array.isArray(quotes_default) ? quotes_default[getRandomQuoteIndex()] : quotes_default;
   if (quoteData.content && quoteData.author) {
     const quote = quoteData.content;
     const author = quoteData.author;
-    const formattedQuote = `${quote}
+    const formattedQuote = `> **quote** Quote
+> ${quote}
 > \u2014 ${author}`;
     console.log(formattedQuote);
     return formattedQuote;
@@ -12935,7 +12936,7 @@ function dailyQuote() {
   }
 }
 
-// f88dc3e8074e30c8.js
+// 6ebb6e5d5838118b.js
 var functionMapping = {
   dailyQuote
 };

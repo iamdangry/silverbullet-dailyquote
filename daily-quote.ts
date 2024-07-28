@@ -12,7 +12,7 @@ export function dailyQuote() {
   if (quoteData.content && quoteData.author) {
     const quote = quoteData.content;
     const author = quoteData.author;
-    const formattedQuote = `${quote}\n> — ${author}`;
+    const formattedQuote = `> **quote** Quote\n> ${quote}\n> — ${author}`;
     console.log(formattedQuote);
     return formattedQuote;
   } else {
