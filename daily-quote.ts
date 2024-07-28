@@ -1,15 +1,14 @@
 // import { editor } from "$sb/syscalls.ts";
+import quotes from './quotes.json' with { type: "json" };
 
-export async function dailyQuote() {
-  const quoteAPI = "https://api.quotable.io/quotes/random";
-  const response = await fetch(quoteAPI);
+function getRandomQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  return randomIndex;
+}
 
-  if(!response.ok) {
-    throw new Error('Failed to fetch quote');
-  }
+export function dailyQuote() {
 
-  const data = await response.json();
-  const quoteData = Array.isArray(data) ? data[0] : data;
+  const quoteData = Array.isArray(quotes) ? quotes[getRandomQuote()] : quotes;
 
   if (quoteData.content && quoteData.author) {
     const quote = quoteData.content;
