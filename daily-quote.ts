@@ -1,13 +1,13 @@
 import quotes from './quotes.json' with { type: "json" };
 
-function getRandomQuote() {
+function getRandomQuoteIndex() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   return randomIndex;
 }
 
 export function dailyQuote() {
 
-  const quoteData = Array.isArray(quotes) ? quotes[getRandomQuote()] : quotes;
+  const quoteData = Array.isArray(quotes) ? quotes[getRandomQuoteIndex()] : quotes;
 
   if (quoteData.content && quoteData.author) {
     const quote = quoteData.content;
