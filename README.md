@@ -52,4 +52,5 @@ DailyQuote:
 ```
 
 #### Available Tags:
+
 Age, Athletics, Business, Change, Character, Competition, Conservative, Courage, Creativity, Education, Failure, Faith, Family, Famous Quotes, Film, Freedom, Friendship, Future, Generosity, Genius, Gratitude, Happiness, Health, History, Honor, Humor, Humorous, Imagination, Inspirational, Knowledge, Leadership, Life, Literature, Love, Mathematics, Motivational, Nature, Opportunity, Perseverance, Philosophy, Polictics, Power Quotes, Proverb, Religion, Sadness, Science, Self, Self Help, Social Justice, Society, Spirituality, Sports, Stupidity, Success, Technology, Time, Tolerance, Truth, Virtue, War, Weakness, Wellness, Wisdom, Work
