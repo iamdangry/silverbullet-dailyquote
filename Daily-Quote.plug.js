@@ -12935,15 +12935,12 @@ function dailyQuote() {
   }
 }
 
-// 95a74a50ea6deef3.js
+// f88dc3e8074e30c8.js
 var functionMapping = {
   dailyQuote
 };
 var manifest = {
   "name": "Daily-Quote",
-  "requiredPermissions": [
-    "fetch"
-  ],
   "functions": {
     "dailyQuote": {
       "path": "daily-quote.ts:dailyQuote"

@@ -1,6 +1,4 @@
 name: Daily-Quote
-requiredPermissions:
-  - fetch
 functions:
   dailyQuote:
     path: daily-quote.ts:dailyQuote
