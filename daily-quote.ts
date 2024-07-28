@@ -1,4 +1,3 @@
-// import { editor } from "$sb/syscalls.ts";
 import quotes from './quotes.json' with { type: "json" };
 
 function getRandomQuote() {
