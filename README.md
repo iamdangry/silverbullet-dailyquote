@@ -41,3 +41,15 @@ Within your template, call this space-script:
 ```
 
 I use the custom quote admonition from [this](https://community.silverbullet.md/t/additional-admonition-types/281/3) communitiy post.
+
+### Settings
+
+Daily Quote plugin can either be set to select from the entire data set, or preferred tags can be defined in the SETTINGS page:
+
+```yaml
+DailyQuote:
+  tags: ["Wisdom", "Success", "Famous Quotes"]
+```
+
+#### Available Tags:
+Age, Athletics, Business, Change, Character, Competition, Conservative, Courage, Creativity, Education, Failure, Faith, Family, Famous Quotes, Film, Freedom, Friendship, Future, Generosity, Genius, Gratitude, Happiness, Health, History, Honor, Humor, Humorous, Imagination, Inspirational, Knowledge, Leadership, Life, Literature, Love, Mathematics, Motivational, Nature, Opportunity, Perseverance, Philosophy, Polictics, Power Quotes, Proverb, Religion, Sadness, Science, Self, Self Help, Social Justice, Society, Spirituality, Sports, Stupidity, Success, Technology, Time, Tolerance, Truth, Virtue, War, Weakness, Wellness, Wisdom, Work
