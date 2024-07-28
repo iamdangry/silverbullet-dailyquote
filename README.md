@@ -1,8 +1,6 @@
 
 # SilverBullet Daily Quote Plug
 
-This plug was built due to Quoteables API being down.
-
 This plug uses a copy of the [Quoteables Data](https://github.com/quotable-io/data).
 
 Originally I built this using the Templater plugin built for Obsidian as inspiration, so it is currently only tailored to insert quotes into a template inside an admonition.
