@@ -12,13 +12,7 @@ Originally I built this using the Templater plugin built for Obsidian as inspira
 If you would like to install this plug straight from Github simply add the below to your `PLUGS` file, run `Plugs: Update`:
 
 ```
-- github:iamdangry/silverbullet-dailyquote/daily-quote.plug.js
-```
-
-Or to target a specific release
-
-```
-- ghr:iamdangry/silverbullet-dailyquote/0.0.1/daily-quote.plug.js
+- https://github.com/iamdangry/silverbullet-dailyquote/releases/latest/download/daily-quote.plug.js
 ```
 
 ### Space Script
@@ -44,13 +38,14 @@ I use the custom quote admonition from [this](https://community.silverbullet.md/
 
 ### Settings
 
-Daily Quote plugin can either be set to select from the entire data set, or preferred tags can be defined in the SETTINGS page:
+Daily Quote plugin can either be set to select from the entire data set, include certain tags, exclude certain tags or a mix of both. This can be defined in the SETTINGS page:
 
 ```yaml
 DailyQuote:
-  tags: ["Wisdom", "Success", "Famous Quotes"]
+  includeTags: ["Wisdom", "Success", "Famous Quotes"]
+  excludeTags: ["Change", "Life"]
 ```
 
-#### Available Tags:
+#### Available Tags
 
 Age, Athletics, Business, Change, Character, Competition, Conservative, Courage, Creativity, Education, Failure, Faith, Family, Famous Quotes, Film, Freedom, Friendship, Future, Generosity, Genius, Gratitude, Happiness, Health, History, Honor, Humor, Humorous, Imagination, Inspirational, Knowledge, Leadership, Life, Literature, Love, Mathematics, Motivational, Nature, Opportunity, Perseverance, Philosophy, Polictics, Power Quotes, Proverb, Religion, Sadness, Science, Self, Self Help, Social Justice, Society, Spirituality, Sports, Stupidity, Success, Technology, Time, Tolerance, Truth, Virtue, War, Weakness, Wellness, Wisdom, Work
