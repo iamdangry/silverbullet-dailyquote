@@ -3,7 +3,8 @@ import quotes from './quotes.json' with { type: "json" };
 
 async function loadSettings() {
   const defaultSettings = {
-    tags: []
+    includeTags: [],
+    excludeTags: []
   };
   const settingsFile = await readSetting("DailyQuote", {});
   const newSettings = { ...defaultSettings, ...settingsFile};
@@ -15,26 +16,39 @@ function getRandomIndex(indexLength: number) {
   return randomIndex;
 }
 
-export async function dailyQuote() {
+async function getQuote() {
   const settings = await loadSettings();
   let filteredQuotes = quotes;
 
-  if (settings.tags.length > 0) {
-    console.log("Defined quote tags: " + settings.tags);
-    const tag = settings.tags[getRandomIndex(settings.tags.length)];
+  if (settings.includeTags.length > 0) {
+    console.log("Defined quote tags: " + settings.includeTags);
+    const tag = settings.includeTags[getRandomIndex(settings.includeTags.length)];
     console.log("Selected tag: " + tag);
     filteredQuotes = quotes.filter(quote => quote.tags.includes(tag));
   } else {
     console.log("No tags set. Selecting from entire data set");
   }
 
+  if (settings.excludeTags.length > 0) {
+    console.log("Defined exclude tags: " + settings.excludeTags);
+    filteredQuotes = filteredQuotes.filter(quote => 
+      !settings.excludeTags.some(excludeTag => quote.tags.includes(excludeTag))
+    );
+  }
+
   const quoteData = Array.isArray(filteredQuotes) ? filteredQuotes[getRandomIndex(filteredQuotes.length)] : filteredQuotes;
+
+  return quoteData;
+}
+
+export async function dailyQuote() {
+  const quoteData = await getQuote();
 
   if (quoteData.content && quoteData.author) {
     const quote = quoteData.content;
     const author = quoteData.author;
     console.log("Selected quote: " + quote + " - " + author);
-    const formattedQuote = `> **quote** Quote\n> ${quote}\n> — ${author}`;
+    const formattedQuote = `${quote}\n> — ${author}`;
     return formattedQuote;
   } else {
     throw new Error('No quote in response');
