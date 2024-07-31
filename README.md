@@ -12,7 +12,7 @@ Originally I built this using the Templater plugin built for Obsidian as inspira
 If you would like to install this plug straight from Github simply add the below to your `PLUGS` file, run `Plugs: Update`:
 
 ```
-- https://github.com/iamdangry/silverbullet-dailyquote/releases/latest/download/daily-quote.plug.js
+- https://github.com/iamdangry/silverbullet-dailyquote/releases/latest/download/Daily-Quote.plug.js
 ```
 
 ### Space Script
