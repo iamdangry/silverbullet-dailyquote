@@ -17,7 +17,7 @@ If you would like to install this plug straight from Github simply add the below
 
 ### Space Script
 
-Due to a limitation within SilverBullet to call a plug from a template, the following space script needs to be added to your space.
+Due to a limitation within SilverBullet to call a plug from a template, the following space script is required.
 
 ```space-script
 silverbullet.registerFunction({name: "fetchDailyQuote"}, async () => {
@@ -34,7 +34,7 @@ Within your template, call this space-script:
 > {{fetchDailyQuote}}
 ```
 
-I use the custom quote admonition from [this](https://community.silverbullet.md/t/additional-admonition-types/281/3) communitiy post.
+I use the custom quote admonition from [this community post](https://community.silverbullet.md/t/additional-admonition-types/281/3).
 
 ### Settings
 
