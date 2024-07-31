@@ -1,4 +1,4 @@
-name: Daily-Quote
+name: daily-quote
 functions:
   dailyQuote:
     path: daily-quote.ts:dailyQuote
