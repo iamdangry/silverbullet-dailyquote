@@ -21,7 +21,7 @@ Due to a limitation within SilverBullet to call a plug from a template, the foll
 
 ```space-script
 silverbullet.registerFunction({name: "fetchDailyQuote"}, async () => {
-  return await syscall("system.invokeFunction", "Daily-Quote.dailyQuote");
+  return await syscall("system.invokeFunction", "daily-1uote.dailyQuote");
 })
 ```
 
