@@ -19,42 +19,22 @@ function getRandomIndex(indexLength: number) {
 }
 
 async function getQuote() {
-  const settings = await loadSettings();
-  let filteredQuotes = quotes;
+  const { includeTags, excludeTags, includeAuthors, excludeAuthors } = await loadSettings();
 
-  if (settings.includeTags.length > 0) {
-    console.log("Defined quote tags: " + settings.includeTags);
-    const tag = settings.includeTags[getRandomIndex(settings.includeTags.length)];
-    console.log("Selected tag: " + tag);
-    filteredQuotes = quotes.filter(quote => quote.tags.includes(tag));
-  } else {
-    console.log("No tags set. Selecting from entire data set");
-  }
-
-  if (settings.excludeTags.length > 0) {
-    console.log("Defined exclude tags: " + settings.excludeTags);
-    filteredQuotes = filteredQuotes.filter(quote => 
-      !settings.excludeTags.some(excludeTag => quote.tags.includes(excludeTag))
-    );
-  }
-
-  if (settings.includeAuthors.length > 0) {
-    console.log("Include authors: " + settings.includeAuthors);
-    filteredQuotes = filteredQuotes.filter(quote => settings.includeAuthors.includes(quote.author)
-    );
-  }
-
-  if (settings.excludeAuthors.length > 0) {
-    console.log("Exclude authors: " + settings.excludeAuthors);
-    filteredQuotes = filteredQuotes.filter(quote => !settings.excludeAuthors.includes(quote.author)
-    );
-  }
+  const filteredQuotes = quotes.filter(quote => {
+    const hasIncludedTag = includeTags.length === 0 || includeTags.some((tag: string) => quote.tags.includes(tag));
+    const hasExcludedTag = excludeTags.some((tag: string) => quote.tags.includes(tag));
+    const hasIncludedAuthor = includeAuthors.length === 0 || includeAuthors.includes(quote.author);
+    const hasExcludedAuthor = excludeAuthors.includes(quote.author);
+    
+    return hasIncludedTag && !hasExcludedTag && hasIncludedAuthor && !hasExcludedAuthor;
+  });
 
   if (filteredQuotes.length === 0) {
     throw new Error('No quotes match filters');
   }
 
-  const quoteData = Array.isArray(filteredQuotes) ? filteredQuotes[getRandomIndex(filteredQuotes.length)] : filteredQuotes;
+  const quoteData = filteredQuotes[getRandomIndex(filteredQuotes.length)];
 
   return quoteData;
 }
