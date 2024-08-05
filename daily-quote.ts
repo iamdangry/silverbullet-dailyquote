@@ -4,7 +4,9 @@ import quotes from './quotes.json' with { type: "json" };
 async function loadSettings() {
   const defaultSettings = {
     includeTags: [],
-    excludeTags: []
+    excludeTags: [],
+    includeAuthors: [],
+    excludeAuthors: []
   };
   const settingsFile = await readSetting("DailyQuote", {});
   const newSettings = { ...defaultSettings, ...settingsFile};
@@ -34,6 +36,22 @@ async function getQuote() {
     filteredQuotes = filteredQuotes.filter(quote => 
       !settings.excludeTags.some(excludeTag => quote.tags.includes(excludeTag))
     );
+  }
+
+  if (settings.includeAuthors.length > 0) {
+    console.log("Include authors: " + settings.includeAuthors);
+    filteredQuotes = filteredQuotes.filter(quote => settings.includeAuthors.includes(quote.author)
+    );
+  }
+
+  if (settings.excludeAuthors.length > 0) {
+    console.log("Exclude authors: " + settings.excludeAuthors);
+    filteredQuotes = filteredQuotes.filter(quote => !settings.excludeAuthors.includes(quote.author)
+    );
+  }
+
+  if (filteredQuotes.length === 0) {
+    throw new Error('No quotes match filters');
   }
 
   const quoteData = Array.isArray(filteredQuotes) ? filteredQuotes[getRandomIndex(filteredQuotes.length)] : filteredQuotes;
