@@ -1,4 +1,5 @@
 import { readSetting } from "$sb/lib/settings_page.ts";
+import { editor } from "$sb/syscalls.ts";
 import quotes from './quotes.json' with { type: "json" };
 
 async function loadSettings() {
@@ -31,7 +32,7 @@ async function getQuote() {
   });
 
   if (filteredQuotes.length === 0) {
-    throw new Error('No quotes match filters');
+    await editor.flashNotification('No quotes match filters', 'error');
   }
 
   const quoteData = filteredQuotes[getRandomIndex(filteredQuotes.length)];
@@ -49,6 +50,6 @@ export async function dailyQuote() {
     const formattedQuote = `${quote}\n> — ${author}`;
     return formattedQuote;
   } else {
-    throw new Error('No quote in response');
+    await editor.flashNotification('No quote in response', "error");
   }
 }
