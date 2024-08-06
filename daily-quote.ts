@@ -1,10 +1,13 @@
 import { readSetting } from "$sb/lib/settings_page.ts";
+import { editor } from "$sb/syscalls.ts";
 import quotes from './quotes.json' with { type: "json" };
 
 async function loadSettings() {
   const defaultSettings = {
     includeTags: [],
-    excludeTags: []
+    excludeTags: [],
+    includeAuthors: [],
+    excludeAuthors: []
   };
   const settingsFile = await readSetting("DailyQuote", {});
   const newSettings = { ...defaultSettings, ...settingsFile};
@@ -17,26 +20,22 @@ function getRandomIndex(indexLength: number) {
 }
 
 async function getQuote() {
-  const settings = await loadSettings();
-  let filteredQuotes = quotes;
+  const { includeTags, excludeTags, includeAuthors, excludeAuthors } = await loadSettings();
 
-  if (settings.includeTags.length > 0) {
-    console.log("Defined quote tags: " + settings.includeTags);
-    const tag = settings.includeTags[getRandomIndex(settings.includeTags.length)];
-    console.log("Selected tag: " + tag);
-    filteredQuotes = quotes.filter(quote => quote.tags.includes(tag));
-  } else {
-    console.log("No tags set. Selecting from entire data set");
+  const filteredQuotes = quotes.filter(quote => {
+    const hasIncludedTag = includeTags.length === 0 || includeTags.some((tag: string) => quote.tags.includes(tag));
+    const hasExcludedTag = excludeTags.some((tag: string) => quote.tags.includes(tag));
+    const hasIncludedAuthor = includeAuthors.length === 0 || includeAuthors.includes(quote.author);
+    const hasExcludedAuthor = excludeAuthors.includes(quote.author);
+    
+    return hasIncludedTag && !hasExcludedTag && hasIncludedAuthor && !hasExcludedAuthor;
+  });
+
+  if (filteredQuotes.length === 0) {
+    await editor.flashNotification('No quotes match filters', 'error');
   }
 
-  if (settings.excludeTags.length > 0) {
-    console.log("Defined exclude tags: " + settings.excludeTags);
-    filteredQuotes = filteredQuotes.filter(quote => 
-      !settings.excludeTags.some(excludeTag => quote.tags.includes(excludeTag))
-    );
-  }
-
-  const quoteData = Array.isArray(filteredQuotes) ? filteredQuotes[getRandomIndex(filteredQuotes.length)] : filteredQuotes;
+  const quoteData = filteredQuotes[getRandomIndex(filteredQuotes.length)];
 
   return quoteData;
 }
@@ -51,6 +50,6 @@ export async function dailyQuote() {
     const formattedQuote = `${quote}\n> — ${author}`;
     return formattedQuote;
   } else {
-    throw new Error('No quote in response');
+    await editor.flashNotification('No quote in response', "error");
   }
 }

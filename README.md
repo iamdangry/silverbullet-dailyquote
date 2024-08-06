@@ -38,13 +38,17 @@ I use the custom quote admonition from [this community post](https://community.s
 
 ### Settings
 
-Daily Quote plugin can either be set to select from the entire data set, include certain tags, exclude certain tags or a mix of both. This can be defined in the SETTINGS page:
+Daily Quote plugin can either be set to select from the entire data set, include/exclude certain tags, include/exclude authors or a mix of both. This can be defined in the SETTINGS page like below:
 
 ```yaml
 DailyQuote:
   includeTags: ["Wisdom", "Success", "Famous Quotes"]
   excludeTags: ["Change", "Life"]
+  includeAuthors: ["Confucius"]
+  excludeAuthors: ["Anatole France"]
 ```
+
+Be careful not to define too many/narrow filter as this rapidly reduces the number of results returned and could lead to no results being returned.
 
 #### Available Tags
 
