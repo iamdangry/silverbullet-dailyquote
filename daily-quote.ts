@@ -1,5 +1,4 @@
-import { readSetting } from "$sb/lib/settings_page.ts";
-import { editor } from "$sb/syscalls.ts";
+import { editor, system } from "$sb/syscalls.ts";
 import quotes from './quotes.json' with { type: "json" };
 
 async function loadSettings() {
@@ -9,7 +8,7 @@ async function loadSettings() {
     includeAuthors: [],
     excludeAuthors: []
   };
-  const settingsFile = await readSetting("DailyQuote", {});
+  const settingsFile = await system.getSpaceConfig("DailyQuote");
   const newSettings = { ...defaultSettings, ...settingsFile};
   return newSettings;
 }
