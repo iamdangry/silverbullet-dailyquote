@@ -1,6 +1,12 @@
 import { editor, system } from "$sb/syscalls.ts";
 import quotes from './quotes.json' with { type: "json" };
 
+const VERSION = "0.3.0";
+
+export async function showVersion() {
+  await editor.flashNotification(`Daily Quote Version: ${VERSION}`)
+}
+
 async function loadSettings() {
   const defaultSettings = {
     includeTags: [],

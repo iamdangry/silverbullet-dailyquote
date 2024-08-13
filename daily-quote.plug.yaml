@@ -2,5 +2,7 @@ name: daily-quote
 functions:
   dailyQuote:
     path: daily-quote.ts:dailyQuote
-    # command:
-    #   name: "Daily Quote: Fetch"
+  showVersion:
+    path: daily-quote.ts:showVersion
+    command:
+      name: "Daily Quote: Version"
