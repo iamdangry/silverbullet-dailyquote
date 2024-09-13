@@ -1,7 +1,7 @@
 import { editor, system } from "$sb/syscalls.ts";
 import quotes from './quotes.json' with { type: "json" };
 
-const VERSION = "0.3.0";
+const VERSION = "0.3.1";
 
 export async function showVersion() {
   await editor.flashNotification(`Daily Quote Version: ${VERSION}`)
