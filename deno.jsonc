@@ -1,9 +1,10 @@
 {
-  "importMap": "import_map.json",
+  "imports": {
+    "@silverbulletmd/silverbullet": "jsr:@silverbulletmd/silverbullet@^0.9.4"
+  },
   "tasks": {
-    "build": "silverbullet plug:compile --debug --info --importmap import_map.json daily-quote.plug.yaml",
-    "build-release": "silverbullet plug:compile --info --importmap import_map.json daily-quote.plug.yaml",
-    "watch": "silverbullet plug:compile --debug --info --importmap import_map.json daily-quote.plug.yaml -w"
+    "build": "silverbullet plug:compile -c deno.jsonc daily-quote.plug.yaml",
+    "watch": "silverbullet plug:compile --debug -c deno.jsonc daily-quote.plug.yaml -w"
   },
   "lint": {
     "rules": {
