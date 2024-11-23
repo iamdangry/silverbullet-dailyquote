@@ -51,7 +51,6 @@ export async function dailyQuote() {
   if (quoteData.content && quoteData.author) {
     const quote = quoteData.content;
     const author = quoteData.author;
-    console.log("Selected quote: " + quote + " - " + author);
     const formattedQuote = `${quote}\n> — ${author}`;
     return formattedQuote;
   } else {
