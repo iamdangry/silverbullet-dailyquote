@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@silverbulletmd/silverbullet": "jsr:@silverbulletmd/silverbullet@^0.10.1"
+    "@silverbulletmd/silverbullet": "jsr:@silverbulletmd/silverbullet@^0.10.4"
   },
   "tasks": {
     "build": "silverbullet plug:compile -c deno.jsonc daily-quote.plug.yaml",
