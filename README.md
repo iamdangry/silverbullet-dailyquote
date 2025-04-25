@@ -9,16 +9,10 @@ Originally I built this using the Templater plugin built for Obsidian as inspira
 
 ### PLUG
 
-If you would like to install the latest release from Github simply add the below to your `PLUGS` file, run `Plugs: Update`:
+To install add the below to your `PLUGS` file, run `Plugs: Update`:
 
 ```
-- https://github.com/iamdangry/silverbullet-dailyquote/releases/latest/download/daily-quote.plug.js
-```
-
-If you would like to run edge (whatever is pushed to main), add the below (warning this may break from time to time):
-
-```
-- github:iamdangry/silverbullet-dailyquote/daily-quote.plug.js
+- ghr:iamdangry/silverbullet-dailyquote/latest
 ```
 
 ### Space Script
