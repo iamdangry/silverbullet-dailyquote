@@ -23,7 +23,7 @@ jobs:
 
       - name: Build project
         run: |
-          deno install -f --name silverbullet --unstable-kv --unstable-worker-options -A https://github.com/silverbulletmd/silverbullet/releases/download/0.10.4/silverbullet.js
+          deno install -f --name silverbullet --unstable-kv --unstable-worker-options -A https://github.com/silverbulletmd/silverbullet/releases/download/0.10.4/silverbullet.js --global
           deno task build
 
       - name: Archive built file
