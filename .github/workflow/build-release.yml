@@ -28,7 +28,7 @@ jobs:
       - name: Archive built file
         run: |
           mkdir -p artifacts
-          cp ./dist/your-built-file.js ./artifacts/
+          cp silverbullet-dailyquote.plug.js ./artifacts/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

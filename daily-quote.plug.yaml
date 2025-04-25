@@ -1,4 +1,4 @@
-name: daily-quote
+name: silverbullet-dailyquote
 functions:
   dailyQuote:
     path: daily-quote.ts:dailyQuote
